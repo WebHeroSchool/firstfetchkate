@@ -1,7 +1,4 @@
-
-			let body = document.body;
-			let url = window.location.toString();
-			
+let url = window.location.toString();
 			const getNameFromUrl = (url) => {
 			  let getUrl = url.split('=');
 			  let name = getUrl[1]; //
@@ -23,23 +20,23 @@
 					photo.src = json.avatar_url;
 					document.body.append(photo);
 			
-					let name  = document.createElement('a');
+					let name  = document.getElementsByTagName('a');
 					if (json.name != null) {
-						name.innerHTML = json.name;
+						name[0].innerHTML = json.name;
 					} else {
-						name.innerHTML = ;
+						name.innerHTML = "_" ;
 					}
 					document.body.append(name);
-					/*name.addEventListener("click", () => window.location = 'https://webheroschool.github.io/katerinaSaranM/');*/
-			
-					let bio = document.createElement('p');
+					name[0].href = json.html_url;
+					
+					let bio = document.getElementsByTagName('p');
 					if (json.bio != null) {
-						bio.innerHTML = json.bio;
+						bio[0].innerHTML = json.bio;
 					} else {
-						bio.innerHTML = ;
+						bio.innerHTML = "_";
 					}
 					document.body.append(bio);
-			
+					
 				})
 				.catch(err => alert('_'));
 			
